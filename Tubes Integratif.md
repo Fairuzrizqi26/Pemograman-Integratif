@@ -65,6 +65,64 @@
  ![Screenshot (514)](https://user-images.githubusercontent.com/92350603/173066567-28d75161-1d60-44e1-8845-59ec9915c3e5.png)
  ![Screenshot (515)](https://user-images.githubusercontent.com/92350603/173066605-f3f6e812-c3b2-44d8-bfe1-a8ec4845f4e7.png)
  
- 
+---
+# TAHAP 2 - RSS 
+---
+
+• Ubah DB_DATABASE di .env sesuai dengan nama database yang dibuat di phpmyadmin
+
+ ![Screenshot (538)](https://user-images.githubusercontent.com/92350603/175769425-43958050-f202-4ecc-887f-48c06065afe6.png)
+ ![Screenshot (539)](https://user-images.githubusercontent.com/92350603/175769495-55558887-8947-4843-958c-0edfee04f431.png)
+
+
+• Buat 2 table rss dan news dengan fitur migrations menggunakan perintah
+  ```
+  php artisan make:migration create_rss_table
+  
+  php artisan make:migration create_news_table
+  ```
+• Tambahkan kolom name dan url pada tabel rss, seperti pada gambar dibawah
+  ![Screenshot (554)](https://user-images.githubusercontent.com/92350603/175769559-7c32856e-18fa-44f8-81f9-c953c0903477.png)
+  
+• Tambahkan kolom title, img_url, description, source_url,  dan rss_id pada tabel news, seperti pada gambar dibawah
+  ![image](https://user-images.githubusercontent.com/92350603/175769571-77c25226-2e96-4173-9d86-a757a645dcd7.png)
+
+• Untuk menjalankan migrasi yang dibuat jalankan perintah diterminal seperti dibawah, lalu cek database
+  ```
+  php artisan migrate
+  ```
+  ![image](https://user-images.githubusercontent.com/92350603/175769656-a221d9ee-cb90-4f3b-b353-eeec02ec2ee8.png)
+
+• Buat koneksi  model  ke database  dengan membuat seeder dan controller untuk tabel Rss dan News, dengan perintah
+  ```
+  php artisan make:model Rss --seed --controller
+  ```
+• Edit file Rss.php, RssSeeder.php serta DatabaseSeeder.php seperti pada gambar dibawah
+  ![image](https://user-images.githubusercontent.com/92350603/175769756-88453f90-75d4-4b0d-98e5-9cf1912afd2e.png)
+  ![image](https://user-images.githubusercontent.com/92350603/175769765-bf7b178a-60ff-4aae-a31a-9c59c165eb5a.png)
+  ![image](https://user-images.githubusercontent.com/92350603/175769779-82fed0dc-1a03-4d54-9b94-e6b1cf966571.png)
+
+• Kemudian cek koneksi dengan perintah
+  ```
+  php artisan db:seed
+  ```  
+• Edit file News.php, NewsController.php, web.php, serta file migration News seperti pada gambar dibawah
+  ![image](https://user-images.githubusercontent.com/92350603/175769819-224b6314-2d49-4806-a4c6-870804160943.png)
+  ![image](https://user-images.githubusercontent.com/92350603/175769842-03c73196-1762-41a3-ad79-4a795a078867.png)
+  ![image](https://user-images.githubusercontent.com/92350603/175769834-f94c1037-c276-4d5d-b35f-46b1422e0931.png)
+
+• Cek localhost di http://127.0.0.1:8000/aggregrate/1 
+  ![Screenshot (550)](https://user-images.githubusercontent.com/92350603/175769884-46c7fd9a-ee50-43d2-8be3-b95015c434ce.png)
+  
+• Cek localhost di http://127.0.0.1:8000/aggregrate/2
+  ![Screenshot (551)](https://user-images.githubusercontent.com/92350603/175769941-e02f4460-ad5e-4b21-8aac-314ef49ecfc1.png)
+  
+• Cek localhost di http://127.0.0.1:8000/aggregrate/3 
+  ![Screenshot (552)](https://user-images.githubusercontent.com/92350603/175769945-35275d49-846b-4a2e-8c3b-787ec8d84afa.png)
+  
+• Dan cek database phpmyadmin
+  ![image](https://user-images.githubusercontent.com/92350603/175769961-ba17e603-9437-45b3-85a1-65666272a77b.png)
+
+  
 ### Thank You - Fairuzrizqi
 
